@@ -1,0 +1,17 @@
+- hosts: web
+  remote_user: ansible
+  become_user: root
+  become: yes
+
+  tasks:
+ 
+    - name: add params to grub config file
+      lineinfile:
+        state: present
+        dest: /etc/default/grub
+        backrefs: yes
+        regexp: '^(GRUB_CMDLINE_LINUX=\"[^\"]+)(\".*)'
+        line: '\1 net.ifnames=0 biosdevname=0\2'
+
+    - name: write grub configuration file
+      command: grub2-mkconfig -o /boot/grub2/grub.cfg

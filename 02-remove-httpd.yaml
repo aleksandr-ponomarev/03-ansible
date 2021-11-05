@@ -1,0 +1,21 @@
+- hosts: web
+  remote_user: ansible
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: remove httpd package
+      yum: name=httpd state=removed
+      
+    - name: delete index.html file
+      file:
+        path: "{{ INDEX_FILE_PATH }}"
+        state: absent
+
+    - name: disable httpd ports
+      firewalld:
+        port: "{{ item }}/tcp"
+        permanent: yes
+        immediate: yes
+        state: disabled
+      loop: "[ {{ WEB_PORTS }} ]"
