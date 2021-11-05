@@ -4,8 +4,7 @@
   become: yes
 
   tasks:
- 
-    - name: add params to grub config file
+     - name: add params to grub config file
       lineinfile:
         state: present
         dest: /etc/default/grub
