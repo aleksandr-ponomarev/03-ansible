@@ -10,7 +10,7 @@
         dest: /etc/default/grub
         backrefs: yes
         regexp: "^(GRUB_CMDLINE_LINUX=(?!.* {{ item }})\"[^\"]+)(\".*)"
-        line: "\1 {{ item }}\2"
+        line: '\1 {{ item }}\2'
       loop:
         - net.ifnames=0
         - biosdevname=0
