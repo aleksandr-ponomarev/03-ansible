@@ -42,4 +42,4 @@
         permanent: yes
         immediate: yes
         state: enabled
-      loop: "[ {{ WEB_PORTS }} ]"
+      loop: "{{ WEB_PORTS }}"
