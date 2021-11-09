@@ -14,6 +14,6 @@
         name: "{{ item.value.username }}"
         comment: "{{ item.value.email }}"
         home: "{{ item.value.homedir }}"
-        password: "{{ item.value.user_password }}"
+        password: "{{ item.value.user_password password_hash('sha512') }}"
         update_password: on_create 
       loop: "{{ users | dict2items }}"
