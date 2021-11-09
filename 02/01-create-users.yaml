@@ -5,6 +5,10 @@
     - vars/users
 
   tasks:
+    - name: test
+      debug:
+        var: "testOK"
+
     - name: add user
       user:
         name: "{{ item.value.username }}"
