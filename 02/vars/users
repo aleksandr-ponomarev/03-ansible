@@ -1,5 +1,5 @@
 users:
-  Alice:
+  - Alice:
     username: Alice
     homedir: /home/alice/
     email: alice@example.com
@@ -10,7 +10,7 @@ users:
           38386438653837643235373862656538623361636130346165613731663632313439303139633434
           6261396233613565360a323231613064373365616636373935366363633131353133323531663366
           6432
-  Bob:
+  - Bob:
     username: Bob
     homedir: /home/bob/
     email: bob@example.com
@@ -21,7 +21,7 @@ users:
           30393064643161353132376137373236633234303132323238363832613463373664323130336633
           3137356339306634640a353466383933663863386138373031303836633863376233393464353864
           3933
-  Carol:
+  - Carol:
     username: Carol
     homedir: /home/carol/
     email: bob@example.com
