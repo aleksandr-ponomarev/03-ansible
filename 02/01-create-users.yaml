@@ -11,7 +11,7 @@
         name: "{{ item.value.username }}"
         comment: "{{ item.value.email }}"
         home: {{ item.value.homedir }}"
-        password: password
+        password: {{ item.value.user_password }}"
         update_password: on_create 
         
       loop: "{{ users }}"
