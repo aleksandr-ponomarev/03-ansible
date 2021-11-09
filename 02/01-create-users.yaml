@@ -1,0 +1,17 @@
+- hosts: node1.example.com
+  remote_user: ansible
+  become_user: root
+  vars_files:
+    - var/users
+    - var/pwd
+
+  tasks:
+    - name: add user
+      user:
+        name: "{{ item.value.username }}"
+        comment: "{{ item.value.email }}"
+        home: {{ item.value.homedir }}"
+        password: password
+        update_password: on_create 
+        
+      loop: "{{ users }}"
