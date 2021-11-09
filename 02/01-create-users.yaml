@@ -2,8 +2,7 @@
   remote_user: ansible
   become_user: root
   vars_files:
-    - var/users
-    - var/pwd
+    - vars/users
 
   tasks:
     - name: add user
