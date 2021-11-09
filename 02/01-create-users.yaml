@@ -5,16 +5,12 @@
     - vars/users.yaml
 
   tasks:
-    - name: test
-      debug:
-        var: "testOK"
-
     - name: add user
       become: yes
       user:
         name: "{{ item.value.username }}"
         comment: "{{ item.value.email }}"
         home: "{{ item.value.homedir }}"
-        password: "{{ item.value.user_password }}"
+        password: "{{ item.value.user_password | password_hash('sha512', 'mysecretsalt') }}"
         update_password: on_create 
       loop: "{{ users | dict2items }}"
