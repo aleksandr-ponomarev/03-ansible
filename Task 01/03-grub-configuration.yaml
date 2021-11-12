@@ -10,10 +10,10 @@
         dest: /etc/default/grub
         backrefs: yes
         regexp: "^(GRUB_CMDLINE_LINUX=(?!.* {{ item }})\"[^\"]+)(\".*)"
-        line: '\1 {{ item }}\2'
+        line: '\1 {{ item }}=0\2'
       loop:
-        - net.ifnames=0
-        - biosdevname=0
+        - net.ifnames
+        - biosdevname
 
     - name: write grub configuration file
       command: grub2-mkconfig -o /boot/grub2/grub.cfg
